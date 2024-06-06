@@ -18,12 +18,11 @@ namespace BoligSystem.Forms
         int row;
 
         //Gemmer Alle Værdier i sælger modellen
-        int SId;
-        string SFname;
-        string SLname;
-        int SBoligId;
-        string SEmail;
-        int STlfNr;
+        int Id;
+        string Firstname;
+        string Lastname;
+        string Email;
+        int TlfNr;
 
         public Sælgerform()
         {
@@ -32,12 +31,11 @@ namespace BoligSystem.Forms
             DGVSælger.DataSource = db.GetAllSaelger();
 
             // navngivning af kolonne header
-            DGVSælger.Columns["SId"].HeaderText = "ID";
-            DGVSælger.Columns["SFname"].HeaderText = "Fornavn";
-            DGVSælger.Columns["SLname"].HeaderText = "Efternavn";
-            DGVSælger.Columns["SBoligId"].HeaderText = "Bolig ID";
-            DGVSælger.Columns["SEmail"].HeaderText = "Email";
-            DGVSælger.Columns["STlfNr"].HeaderText = "Telefon nr.";
+            DGVSælger.Columns["Id"].HeaderText = "ID";
+            DGVSælger.Columns["Firstname"].HeaderText = "Fornavn";
+            DGVSælger.Columns["Lastname"].HeaderText = "Efternavn";
+            DGVSælger.Columns["Email"].HeaderText = "Email";
+            DGVSælger.Columns["TlfNr"].HeaderText = "Telefon nr.";
 
 
             // Alternating rows farver, ændres dynamisk
@@ -53,7 +51,7 @@ namespace BoligSystem.Forms
 
         private void TxtSearchbar_TextChanged(object sender, EventArgs e)
         {
-            List<Saelger> FiltreretSaelger = db.SearchbarSælger(TxtSearch.Text);
+            List<Person> FiltreretSaelger = db.SearchbarSælger(TxtSearch.Text);
             DGVSælger.DataSource = FiltreretSaelger;
             DGVSælger.ClearSelection();
         }
@@ -65,12 +63,11 @@ namespace BoligSystem.Forms
             try
             {
                 DataGridViewRow data = DGVSælger.Rows[row];
-                SId = (int)data.Cells["SId"].Value;
-                SFname = (string)data.Cells["SFname"].Value;
-                SLname = (string)data.Cells["SLname"].Value;
-                SBoligId = (int)data.Cells["SBoligId"].Value;
-                SEmail = (string)data.Cells["SEmail"].Value;
-                STlfNr = (int)data.Cells["STlfNr"].Value;
+                Id = (int)data.Cells["Id"].Value;
+                Firstname = (string)data.Cells["Firstname"].Value;
+                Lastname = (string)data.Cells["Lastname"].Value;
+                Email = (string)data.Cells["Email"].Value;
+                TlfNr = (int)data.Cells["TlfNr"].Value;
                 
             }
             catch (Exception ex)
@@ -80,7 +77,7 @@ namespace BoligSystem.Forms
 
             //Filtrere så boligens id matcher med det boligid som er koblet på sælgeren
             List<Bolig> Boliger = db.GetAllBolig();
-            DGV_Saelger_Bolig.DataSource = Boliger.Where(b => b.BoligId == SBoligId).ToList();
+            DGV_Saelger_Bolig.DataSource = Boliger.Where(b => b.BoligId == BoligId).ToList();
             this.DGV_Saelger_Bolig.Columns["UdbudsPris"].DefaultCellStyle.Format = "C0";
             this.DGV_Saelger_Bolig.Columns["SalgsPris"].DefaultCellStyle.Format = "C0";
             this.DGV_Saelger_Bolig.Columns["KvmPris"].DefaultCellStyle.Format = "C0";
@@ -99,12 +96,12 @@ namespace BoligSystem.Forms
         private void Btn_Sorter_Solgt_Click(object sender, EventArgs e)
         {
             List<Bolig> BoligSolgt = db.GetAllBolig();
-            DGV_Saelger_Bolig.DataSource = BoligSolgt.Where(b => b.SalgsPris > 1 && b.BoligId == SBoligId).ToList();
+            DGV_Saelger_Bolig.DataSource = BoligSolgt.Where(b => b.SagId == 0).ToList();
         }
 
         private void Btn_Update_Click(object sender, EventArgs e)
         {
-            OpdaterSælgerForm os = new OpdaterSælgerForm(SId, SFname + " " + SLname, SBoligId, SEmail, STlfNr);
+            OpdaterSælgerForm os = new OpdaterSælgerForm(Id, Firstname + " " + Lastname, Email, TlfNr);
             os.Show();
         }
 

@@ -23,23 +23,18 @@ namespace BoligSystem.Forms
         int row;
 
         //Gemmer alle værdier i Kunde modellen
-        int KId;
-        string KFname;
-        string KLname;
-        int KBoligId;
-        string KEmail;
-        int KTlfNr;
+        int Id;
+        string Fname;
+        string Lname;
+        string Email;
+        int TlfNr;
 
-        // Gemmer alle værdier fra bolig til dvg
-        int BoligIid;
-        string Adresse;
-        int PostNr;
-        int Udbudspris;
-        int Kvadratmeter;
-        string BoligType;
-        bool Aktiv;
-        int MæglerId;
-        int BoligId;
+        // Gemmer alle værdier fra sag til dvg
+        int SagId;
+        int SaelgerId;
+        int EjendomsmaeglerId;
+        int KoeberId;
+       
 
 
         public KundeForm()
@@ -49,12 +44,11 @@ namespace BoligSystem.Forms
             DGVKunde.DataSource = db.GetAllKunder();
 
             // Navngivning af kolonne header
-            DGVKunde.Columns["KId"].HeaderText = "ID";
-            DGVKunde.Columns["KFname"].HeaderText = "Fornavn";
-            DGVKunde.Columns["KLname"].HeaderText = "Efternavn";
-            DGVKunde.Columns["KBoligId"].HeaderText = "Bolig ID";
-            DGVKunde.Columns["KEmail"].HeaderText = "Email";
-            DGVKunde.Columns["KTlfNr"].HeaderText = "Telefon nr.";
+            DGVKunde.Columns["Id"].HeaderText = "ID";
+            DGVKunde.Columns["Fname"].HeaderText = "Fornavn";
+            DGVKunde.Columns["Lname"].HeaderText = "Efternavn";
+            DGVKunde.Columns["Email"].HeaderText = "Email";
+            DGVKunde.Columns["TlfNr"].HeaderText = "Telefon nr.";
 
             // Alternating rows farver, ændres dynamisk
             this.DGVKunde.RowsDefaultCellStyle.BackColor = Color.White;
@@ -68,12 +62,11 @@ namespace BoligSystem.Forms
             try
             {
                 DataGridViewRow data = DGVKunde.Rows[row];
-                KId = (int)data.Cells["KId"].Value;
-                KFname = (string)data.Cells["KFname"].Value;
-                KLname = (string)data.Cells["KLname"].Value;
-                KBoligId = (int)data.Cells["KBoligId"].Value;
-                KEmail = (string)data.Cells["KEmail"].Value;
-                KTlfNr = (int)data.Cells["KTlfNr"].Value;
+                Id = (int)data.Cells["KoeberId"].Value;
+                Fname = (string)data.Cells["Fname"].Value;
+                Lname = (string)data.Cells["Lname"].Value;
+                Email = (string)data.Cells["Email"].Value;
+                TlfNr = (int)data.Cells["TlfNr"].Value;
             }
             catch (Exception ex)
             {
@@ -83,7 +76,7 @@ namespace BoligSystem.Forms
             List<Bolig> boliger = db.GetAllBolig();
             this.
 
-            DGV_Kunde_Bolig.DataSource = boliger.Where(b => b.BoligId == KBoligId).ToList();
+            DGV_Kunde_Bolig.DataSource = boliger;
             this.DGV_Kunde_Bolig.Columns["Udbudspris"].DefaultCellStyle.Format = "C0";
             this.DGV_Kunde_Bolig.Columns["Salgspris"].DefaultCellStyle.Format = "C0";
 
@@ -109,12 +102,11 @@ namespace BoligSystem.Forms
             try
             {
                 DataGridViewRow data = DGVKunde.Rows[row];
-                KId = (int)data.Cells["KId"].Value;
-                KFname = (string)data.Cells["KFname"].Value;
-                KLname = (string)data.Cells["KLname"].Value;
-                KBoligId = (int)data.Cells["KBoligId"].Value;
-                KEmail = (string)data.Cells["KEmail"].Value;
-                KTlfNr = (int)data.Cells["KTlfNr"].Value;
+                Id = (int)data.Cells["KoeberId"].Value;
+                Fname = (string)data.Cells["Fname"].Value;
+                Lname = (string)data.Cells["Lname"].Value;
+                Email = (string)data.Cells["Email"].Value;
+                TlfNr = (int)data.Cells["TlfNr"].Value;
 
 
             }
@@ -122,7 +114,7 @@ namespace BoligSystem.Forms
             {
                 Console.WriteLine(ex.Message);
             }
-            if (KBoligId < 1)
+            if (SagId < 1)
             {
 
                 textbox_MaeglerNavn.Text = " ";
@@ -151,22 +143,17 @@ namespace BoligSystem.Forms
             {
                 DataGridViewRow data = DGV_Kunde_Bolig.Rows[row];
 
-                MæglerId = (int)data.Cells["MaeglerId"].Value;
-                Adresse = (string)data.Cells["Adresse"].Value;
-                BoligIid = (int)data.Cells["BoligId"].Value;
-                PostNr = (int)data.Cells["PostNr"].Value;
-                Udbudspris = (int)data.Cells["UdbudsPris"].Value;
-                Kvadratmeter = (int)data.Cells["Kvadratmeter"].Value;
-                BoligType = (string)data.Cells["BoligType"].Value;
-                Aktiv = (bool)data.Cells["Aktiv"].Value;
-                BoligId = (int)data.Cells["BoligId"].Value;
+                SagId = (int)data.Cells["SagId"].Value;
+                SaelgerId = (int)data.Cells["SaelgerId"].Value;
+                EjendomsmaeglerId = (int)data.Cells["EjendomsmaeglerId"].Value;
+                KoeberId = (int)data.Cells["KoeberId"].Value;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            if (KBoligId < 1)
+            if (KoeberId < 1)
             {
 
                 textbox_MaeglerNavn.Text = " ";
@@ -188,9 +175,9 @@ namespace BoligSystem.Forms
 
                 //Tilføjer information over i Mægler kassen
                 EjendomsMaegler em = db.GetSingleEjendomsMaegler(MæglerId);
-                textbox_MaeglerNavn.Text = em.MFname + " " + em.MLname;
-                Txtbox_MaeglerTlf.Text = "" + em.MTlfNr;
-                Txtbox_MaeglerEmail.Text = em.MEmail;
+                textbox_MaeglerNavn.Text = em.Firstname + " " + em.Lastname;
+                Txtbox_MaeglerTlf.Text = "" + em.TlfNr;
+                Txtbox_MaeglerEmail.Text = em.Email;
             }
 
         }
@@ -203,7 +190,7 @@ namespace BoligSystem.Forms
 
         private void Btn_Update_Click(object sender, EventArgs e)
         {
-            OpdaterKundeform kf = new OpdaterKundeform(KFname, KLname, KEmail, KTlfNr, KId);
+            OpdaterKundeform kf = new OpdaterKundeform(Fname, Lname, Email, TlfNr, Id);
             kf.Show();
         }
 
@@ -212,7 +199,7 @@ namespace BoligSystem.Forms
             var result = MessageBox.Show("Er du sikker på du gerne vil slette Køberen", "Advarsel", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                db.HardDeleteKundeFromDB(KId);
+                db.HardDeleteKundeFromDB(Id);
             }
             else
             {

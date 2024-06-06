@@ -76,7 +76,7 @@ namespace BoligSystem.Forms
                 int afdeling = int.Parse(comboBoxAfdeling.Text);
 
 
-                db.CreateMaegler(new EjendomsMaegler { MFname = fornavn, MLname = efternavn, MEmail = email, MTlfNr = tlf, Afdeling = afdeling, MAktiv = true });
+                db.CreateMaegler(new EjendomsMaegler { Firstname = fornavn, Lastname = efternavn, Email = email, TlfNr = tlf, Afdeling = afdeling, Aktiv = true });
 
                 MessageBox.Show("Nye ejendomsmæglerne er nu oprettet");
                 this.Hide();

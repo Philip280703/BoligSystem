@@ -98,11 +98,11 @@ namespace BoligSystem.Forms
 
             //Viser alle aktive boliger i Aktiv DGV
             List<Bolig> Boliger = db.GetAllBolig();
-            Dgv_Aktive_Boliger.DataSource = Boliger.Where(b => b.MaeglerId == MaeglerId && b.SalgsPris < 1).ToList();
+            Dgv_Aktive_Boliger.DataSource = Boliger.Where(b => b.SagId == MaeglerId && b.SalgsPris < 1).ToList();
             Dgv_Aktive_Boliger.ClearSelection();
 
             //Viser alle inaktive boliger i inaktiv DGV
-            Dgv_Inaktive_Boliger.DataSource = Boliger.Where(b => b.MaeglerId == MaeglerId && b.SalgsPris > 1).ToList();
+            Dgv_Inaktive_Boliger.DataSource = Boliger.Where(b => b.SagId == MaeglerId && b.SalgsPris > 1).ToList();
             Dgv_Inaktive_Boliger.ClearSelection();
         }
 
@@ -234,12 +234,12 @@ namespace BoligSystem.Forms
                 var updater = MessageBox.Show("Ejendomsmægler inaktiv", "Vil du gøre denne Ejendomsmægler inaktiv", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (updater == DialogResult.Yes)
                 {
-                    db.UpdateEjendomsMaeglerAktivitet(new EjendomsMaegler { MAktiv = false }, MaeglerId);
+                    db.UpdateEjendomsMaeglerAktivitet(new EjendomsMaegler { Aktiv = false }, MaeglerId);
                     MessageBox.Show("Ejendomsmægler aktivitet er nu opdateret");
                 }
                 if (updater == DialogResult.No)
                 {
-                    db.UpdateEjendomsMaeglerAktivitet(new EjendomsMaegler { MAktiv = true }, MaeglerId);
+                    db.UpdateEjendomsMaeglerAktivitet(new EjendomsMaegler { Aktiv = true }, MaeglerId);
                     MessageBox.Show("Ejendomsmægler aktivitet er nu opdateret");
                 }
                 if (updater == DialogResult.Cancel)

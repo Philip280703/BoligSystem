@@ -43,6 +43,8 @@
             HeaderPnl = new Panel();
             Lbl_Title = new Label();
             ScreenPnl = new Panel();
+            buttonSager = new Button();
+            pictureBox5 = new PictureBox();
             NavPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -50,11 +52,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             LogoPNL.SuspendLayout();
             HeaderPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // NavPnl
             // 
             NavPnl.BackColor = Color.FromArgb(35, 31, 80);
+            NavPnl.Controls.Add(buttonSager);
+            NavPnl.Controls.Add(pictureBox5);
             NavPnl.Controls.Add(ButtonM);
             NavPnl.Controls.Add(ButtonK);
             NavPnl.Controls.Add(ButtonS);
@@ -247,7 +252,37 @@
             ScreenPnl.Size = new Size(1128, 847);
             ScreenPnl.TabIndex = 2;
             // 
-            // Homepage
+            // buttonSager
+            // 
+            buttonSager.Cursor = Cursors.Hand;
+            buttonSager.FlatAppearance.BorderColor = Color.FromArgb(229, 159, 0);
+            buttonSager.FlatAppearance.BorderSize = 2;
+            buttonSager.FlatStyle = FlatStyle.Flat;
+            buttonSager.Font = new Font("Myanmar Text", 18F, FontStyle.Bold);
+            buttonSager.ForeColor = Color.FromArgb(229, 159, 0);
+            buttonSager.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSager.Location = new Point(71, 426);
+            buttonSager.Margin = new Padding(3, 4, 3, 4);
+            buttonSager.Name = "buttonSager";
+            buttonSager.Size = new Size(153, 63);
+            buttonSager.TabIndex = 19;
+            buttonSager.Text = "Sager";
+            buttonSager.UseVisualStyleBackColor = true;
+            buttonSager.Click += buttonSager_Click;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.ImageLocation = "";
+            pictureBox5.Location = new Point(5, 426);
+            pictureBox5.Margin = new Padding(3, 4, 3, 4);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(59, 63);
+            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox5.TabIndex = 18;
+            pictureBox5.TabStop = false;
+            // 
+            // Framework
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -256,7 +291,7 @@
             Controls.Add(HeaderPnl);
             Controls.Add(NavPnl);
             Margin = new Padding(2, 3, 2, 3);
-            Name = "Homepage";
+            Name = "Framework";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             NavPnl.ResumeLayout(false);
@@ -267,6 +302,7 @@
             LogoPNL.ResumeLayout(false);
             HeaderPnl.ResumeLayout(false);
             HeaderPnl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
         }
 
@@ -286,5 +322,7 @@
         private Button ButtonS;
         private Button ButtonB;
         private Panel ScreenPnl;
+        private Button buttonSager;
+        private PictureBox pictureBox5;
     }
 }

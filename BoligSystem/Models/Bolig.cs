@@ -84,9 +84,22 @@ namespace BoligSystem.Models
             {
                 if (value < 1000 || value > 250000)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Kvadratmeter pris is not valid");
                 }
                 kvmpris = value;
+            }
+        }
+        int vaerelser;
+        public int Vaerelser
+        {
+            get { return vaerelser;}
+            set
+            {
+                if ( value < 1 || value > 20)
+                {
+                    throw new ArgumentException("non valid amount af værelser");
+                }
+                vaerelser = value;
             }
         }
  
@@ -95,6 +108,22 @@ namespace BoligSystem.Models
 
 
         public bool Aktiv {  get; set; }
+
+        public bool Solgt {  get; set; }
+
+        DateTime daten;
+        public DateTime UdbudsDato
+        {
+            get { return daten; }
+            set
+            {
+                if (value < new DateTime(2010, 01, 01) || value > new DateTime(2025, 01, 01))
+                {
+                    throw new ArgumentException("Date is out of range");
+                }
+                daten = value;
+            }
+        }
 
         int salgspris;
         public int SalgsPris
@@ -122,22 +151,22 @@ namespace BoligSystem.Models
             {
                 if (value <  new DateTime(1850,01,01) || value > new DateTime(2050,01,01))
                 {
-                    throw new ArgumentException("Date1 is out of range");
+                    throw new ArgumentException("Date is out of range");
                 }
                 date = value;
             }
         }
-        int maeglerid;
-        public int MaeglerId 
+        int sagId;
+        public int SagId 
         {
-            get { return maeglerid; }
+            get { return sagId; }
             set
             {
                 if ((value < 0) || (value > 1000))
                 {
                     throw new ArgumentException("MaeglerId is out of range");
                 }
-                maeglerid = value;
+                sagId = value;
             }
         }
     }

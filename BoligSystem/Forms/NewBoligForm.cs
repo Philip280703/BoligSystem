@@ -124,7 +124,7 @@ namespace BoligSystem.Forms
                     throw new Exception("Telefonnummer not valid");
                 }
 
-                db.CreateBolig(new Bolig { Adresse = Adresse, PostNr = postNr, UdbudsPris = udbudspris, Kvadratmeter = kvadratmeter, BoligType = boligtype, MaeglerId = maeglerid});
+                db.CreateBolig(new Bolig { Adresse = Adresse, PostNr = postNr, UdbudsPris = udbudspris, Kvadratmeter = kvadratmeter, BoligType = boligtype, SagId = maeglerid});
             
                 db.CreateSaelger(new Saelger { SFname = fornavn, SLname = efternavn, SEmail = email, STlfNr = tlfnr });
 

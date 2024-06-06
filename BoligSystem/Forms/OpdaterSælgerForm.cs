@@ -16,14 +16,14 @@ namespace BoligSystem.Forms
         int tlfnr;
         int forrigetlfnr;
 
-        public OpdaterSælgerForm(int sælgerId, string SælgerNavn, int BoligId, string SælgerEmail, int SælgerTlfNr)
+        public OpdaterSælgerForm(int Id, string Firstname, string Email, int TlfNr)
         {
             InitializeComponent();
-            Txt_BoligId.Text = "" + BoligId;
-            Txt_SælgerEmail.Text = SælgerEmail;
-            Txt_SælgerNavn.Text = SælgerNavn;
-            Txt_SælgerTlfNr.Text = "" + SælgerTlfNr;
-            Txt_SælgerId.Text = "" + sælgerId;
+           
+            Txt_SælgerEmail.Text = Email;
+            Txt_SælgerNavn.Text = Firstname;
+            Txt_SælgerTlfNr.Text = "" + TlfNr;
+            Txt_SælgerId.Text = "" + Id;
         }
 
         //Opdater Sælgeren

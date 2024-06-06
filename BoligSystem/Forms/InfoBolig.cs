@@ -239,9 +239,9 @@ namespace BoligSystem.Forms
 
             //Tilføjer information over i Mægler kassen
             EjendomsMaegler em = db.GetSingleEjendomsMaegler(MæglerId);
-            textbox_MaeglerNavn.Text = em.MFname + " " + em.MLname;
-            Txtbox_MaeglerTlf.Text = "" + em.MTlfNr;
-            Txtbox_MaeglerEmail.Text = em.MEmail;
+            textbox_MaeglerNavn.Text = em.Firstname + " " + em.Lastname;
+            Txtbox_MaeglerTlf.Text = "" + em.TlfNr;
+            Txtbox_MaeglerEmail.Text = em.Email;
 
             // Henter info omkring Sælger som er tilkoblet Bolig
 

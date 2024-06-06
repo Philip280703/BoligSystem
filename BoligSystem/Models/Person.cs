@@ -6,29 +6,31 @@ using System.Threading.Tasks;
 
 namespace BoligSystem.Models
 {
-    internal class Kunde
+    public class Person
     {
-        int kid;
-        public int KId 
-        {
-            get { return kid; }
-            set 
-            {  
-                if (value < 0 || value > 10000)
-                {
-                    throw new ArgumentOutOfRangeException("ID is out of range");
-                }
-                kid = value;
-            }
-        }
-
-  
-        string kfname;
-        public string KFname
+        int id;
+        public int Id
         {
             get
             {
-                return kfname;
+                return id;
+            }
+            set
+            {
+                if (value < 0 || value > 10000)
+                {
+                    throw new ArgumentException("ID is out of range");
+                }
+                id = value;
+            }
+        }
+
+        string firstname;
+        public string Fname
+        {
+            get
+            {
+                return firstname;
             }
             set
             {
@@ -36,16 +38,16 @@ namespace BoligSystem.Models
                 {
                     throw new ArgumentException("Firstname is out of range");
                 }
-                kfname = value;
+                firstname = value;
             }
         }
 
-        string klname;
-        public string KLname
+        string lastname;
+        public string Lname
         {
             get
             {
-                return klname;
+                return lastname;
             }
             set
             {
@@ -53,51 +55,34 @@ namespace BoligSystem.Models
                 {
                     throw new ArgumentException("Lastname is out of range");
                 }
-                klname = value;
-            }
-        }
-        
-
-        int kboligid;
-        public int KBoligId 
-        {
-            get { return kboligid; }
-            set
-            { 
-                if (value < 0 || value > 10000)
-                {
-                    throw new ArgumentException("BoligID is out of range");
-                }
-                kboligid = value;
+                lastname = value;
             }
         }
 
-
-        string kemail;
-        public string KEmail
+        string email;
+        public string Email
         {
-            get { return kemail; }
+            get { return email; }
             set
             {
                 if (value.Length < 5 || !value.Contains("@") || !value.Contains("."))
                 {
                     throw new ArgumentException("Email is not valid");
                 }
-                kemail = value;
+                email = value;
             }
         }
-
-        int ktlfnr;
-        public int KTlfNr
+        int tlf;
+        public int TlfNr
         {
-            get { return ktlfnr; }
+            get { return tlf; }
             set
             {
-                if (value < 10000000 || value >= 99999999)
+                if (value < 10000000 || value > 99999999)
                 {
-                    throw new ArgumentException("Phonenumber is out of range");
+                    throw new ArgumentException("Phonenumber is not valid");
                 }
-                ktlfnr = value;
+                tlf = value;
             }
         }
     }
