@@ -1,4 +1,4 @@
-﻿namespace SemesterProjekt.Forms
+﻿namespace BoligSystem.Forms
 {
     partial class InfoBolig
     {
@@ -87,10 +87,10 @@
             panel1.Controls.Add(Lbl_MaeglerNavn);
             panel1.Controls.Add(Lbl_Maegler);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(950, 0);
+            panel1.Location = new Point(1257, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(318, 658);
+            panel1.Size = new Size(318, 840);
             panel1.TabIndex = 1;
             // 
             // Btn_OpretBolig
@@ -101,7 +101,7 @@
             Btn_OpretBolig.FlatStyle = FlatStyle.Flat;
             Btn_OpretBolig.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             Btn_OpretBolig.ForeColor = Color.White;
-            Btn_OpretBolig.Location = new Point(0, 430);
+            Btn_OpretBolig.Location = new Point(0, 612);
             Btn_OpretBolig.Margin = new Padding(3, 5, 3, 5);
             Btn_OpretBolig.Name = "Btn_OpretBolig";
             Btn_OpretBolig.Size = new Size(318, 76);
@@ -118,7 +118,7 @@
             Btn_OpdaterUdbudspris.FlatStyle = FlatStyle.Flat;
             Btn_OpdaterUdbudspris.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             Btn_OpdaterUdbudspris.ForeColor = Color.White;
-            Btn_OpdaterUdbudspris.Location = new Point(0, 506);
+            Btn_OpdaterUdbudspris.Location = new Point(0, 688);
             Btn_OpdaterUdbudspris.Margin = new Padding(3, 5, 3, 5);
             Btn_OpdaterUdbudspris.Name = "Btn_OpdaterUdbudspris";
             Btn_OpdaterUdbudspris.Size = new Size(318, 76);
@@ -135,7 +135,7 @@
             Btn_SaelgBolig.FlatStyle = FlatStyle.Flat;
             Btn_SaelgBolig.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             Btn_SaelgBolig.ForeColor = Color.White;
-            Btn_SaelgBolig.Location = new Point(0, 582);
+            Btn_SaelgBolig.Location = new Point(0, 764);
             Btn_SaelgBolig.Margin = new Padding(3, 4, 3, 4);
             Btn_SaelgBolig.Name = "Btn_SaelgBolig";
             Btn_SaelgBolig.Size = new Size(318, 76);
@@ -320,7 +320,7 @@
             ScreenPnl.Location = new Point(0, 0);
             ScreenPnl.Margin = new Padding(3, 4, 3, 4);
             ScreenPnl.Name = "ScreenPnl";
-            ScreenPnl.Size = new Size(950, 658);
+            ScreenPnl.Size = new Size(1257, 840);
             ScreenPnl.TabIndex = 2;
             // 
             // checkBoxSolgt
@@ -349,7 +349,7 @@
             // buttonExportThisPostNr
             // 
             buttonExportThisPostNr.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonExportThisPostNr.Location = new Point(627, 12);
+            buttonExportThisPostNr.Location = new Point(934, 12);
             buttonExportThisPostNr.Margin = new Padding(3, 4, 3, 4);
             buttonExportThisPostNr.Name = "buttonExportThisPostNr";
             buttonExportThisPostNr.Size = new Size(122, 31);
@@ -361,7 +361,7 @@
             // btn_ExportToCSV
             // 
             btn_ExportToCSV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btn_ExportToCSV.Location = new Point(755, 12);
+            btn_ExportToCSV.Location = new Point(1062, 12);
             btn_ExportToCSV.Margin = new Padding(3, 4, 3, 4);
             btn_ExportToCSV.Name = "btn_ExportToCSV";
             btn_ExportToCSV.Size = new Size(86, 31);
@@ -413,12 +413,12 @@
             // Refreshbutton
             // 
             Refreshbutton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Refreshbutton.Location = new Point(857, 11);
+            Refreshbutton.Location = new Point(1164, 11);
             Refreshbutton.Margin = new Padding(3, 4, 3, 4);
             Refreshbutton.Name = "Refreshbutton";
             Refreshbutton.Size = new Size(86, 31);
             Refreshbutton.TabIndex = 5;
-            Refreshbutton.Text = "Refresh";
+            Refreshbutton.Text = "Reset";
             Refreshbutton.UseVisualStyleBackColor = true;
             Refreshbutton.Click += Refreshbutton_Click;
             // 
@@ -480,7 +480,7 @@
             DGVBolig.ReadOnly = true;
             DGVBolig.RowHeadersWidth = 51;
             DGVBolig.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGVBolig.Size = new Size(929, 516);
+            DGVBolig.Size = new Size(1236, 698);
             DGVBolig.TabIndex = 0;
             DGVBolig.CellMouseClick += dataGridViewBolig_CellMouseClick;
             // 
@@ -488,7 +488,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1268, 658);
+            ClientSize = new Size(1575, 840);
             Controls.Add(ScreenPnl);
             Controls.Add(panel1);
             Name = "InfoBolig";

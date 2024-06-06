@@ -1,5 +1,5 @@
-﻿using SemesterProjekt.DataAccess;
-using SemesterProjekt.Models;
+﻿using BoligSystem.DataAccess;
+using BoligSystem.Models;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace SemesterProjekt.Forms
+namespace BoligSystem.Forms
 {
     public partial class InfoBolig : Form
     {

@@ -1,5 +1,5 @@
-﻿using SemesterProjekt.DataAccess;
-using SemesterProjekt.Models;
+﻿using BoligSystem.DataAccess;
+using BoligSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace SemesterProjekt.Forms
+namespace BoligSystem.Forms
 {
     public partial class EjendomsmæglerForm : Form
     {

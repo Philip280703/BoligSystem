@@ -1,4 +1,4 @@
-﻿namespace SemesterProjekt.Forms
+﻿namespace BoligSystem.Forms
 {
     partial class EjendomsmæglerForm
     {

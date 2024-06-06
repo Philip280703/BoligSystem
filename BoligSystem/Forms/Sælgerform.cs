@@ -1,5 +1,5 @@
-﻿using SemesterProjekt.DataAccess;
-using SemesterProjekt.Models;
+﻿using BoligSystem.DataAccess;
+using BoligSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SemesterProjekt.Forms
+namespace BoligSystem.Forms
 {
     public partial class Sælgerform : Form
     {

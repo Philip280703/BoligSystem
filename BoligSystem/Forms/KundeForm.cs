@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using SemesterProjekt.DataAccess;
-using SemesterProjekt.Models;
+using BoligSystem.DataAccess;
+using BoligSystem.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace SemesterProjekt.Forms
+namespace BoligSystem.Forms
 {
 
     public partial class KundeForm : Form
