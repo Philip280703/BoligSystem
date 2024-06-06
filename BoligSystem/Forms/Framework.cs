@@ -1,7 +1,7 @@
+using BoligSystem;
 using BoligSystem.DataAccess;
 using BoligSystem.Forms;
 using BoligSystem.Models;
-using System.Text;
 
 namespace BoligSystem
 {
